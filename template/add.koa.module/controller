@@ -1,0 +1,13 @@
+import { Context } from 'koa'
+
+/**
+ * @api {get} /api/#moduleName#/test 用户测试
+ * @apiDescription 测试接口
+ * @apiGroup #moduleName#
+ */
+export async function test (ctx:Context): Promise<void> {
+  ctx.body = {
+    code: 200,
+    message: 'success'
+  }
+}
