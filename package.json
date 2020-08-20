@@ -1,6 +1,6 @@
 {
   "name": "@pofore/cli",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "A personal frontend scaffold",
   "bin": {
     "pofore": "dist/bin/pofore.js"
