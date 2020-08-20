@@ -6,6 +6,7 @@
     "pofore": "dist/bin/pofore.js"
   },
   "scripts": {
+    "build": "tsc",
     "dev": "tsc -w",
     "deploy": "tsc && npm version patch && npm publish --access public"
   },
