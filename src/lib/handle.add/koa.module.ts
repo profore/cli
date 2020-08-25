@@ -34,7 +34,7 @@ export default async ():Promise<void> => {
     routerStr = routerStr.slice(0, importIndex) + `import ${moduleName}Router from './module.${moduleName}/router'\n` + routerStr.slice(importIndex)
     const useIndex = routerStr.indexOf('// # auto add here # use')
     if (useIndex !== -1) {
-      routerStr = routerStr.slice(0, useIndex) + `router.use('/api/${moduleName}', ${moduleName}Router.routes())\n` + routerStr.slice(useIndex)
+      routerStr = routerStr.slice(0, useIndex) + `router.use('/${moduleName}', ${moduleName}Router.routes())\n` + routerStr.slice(useIndex)
     }
     fs.writeFileSync('src/router.ts', routerStr)
   }

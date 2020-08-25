@@ -1,7 +1,11 @@
 import KoaRouter from 'koa-router'
+import jwt from 'koa-jwt'
 import * as controller from './controller'
+import config from '../config'
+import defaultSuccess from '../middle/defaultSuccess'
 
 const router = new KoaRouter()
-router.get('/test', controller.test)
+router.get('/test', defaultSuccess, controller.test)
+router.use(jwt({ secret: config.secret }))
 
 export default router
