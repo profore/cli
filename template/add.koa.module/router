@@ -5,7 +5,10 @@ import config from '../config'
 import defaultSuccess from '../middle/defaultSuccess'
 
 const router = new KoaRouter()
-router.get('/test', defaultSuccess, controller.test)
 router.use(jwt({ secret: config.secret }))
+router.get('/list', defaultSuccess, controller.list)
+router.post('/create', defaultSuccess, controller.create)
+router.post('/update', defaultSuccess, controller.update)
+router.post('/delete', defaultSuccess, controller.del)
 
 export default router

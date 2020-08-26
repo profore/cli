@@ -1,11 +1,45 @@
 import { Context } from 'koa'
+import tablestore from '../lib/tablestore'
 
 /**
- * @api {post} /api/user/test 测试接口
- * @apiGroup user
- * @apiParam {string} phone 手机号
+ * @api {get} /api/#moduleName#/list 列表
+ * @apiGroup #moduleName#
  */
-export async function login (ctx: Context): Promise<void> {
-  const { phone } = ctx.request.body
+export async function list (ctx: Context): Promise<void> {
+  const data = await tablestore.getItems('v1_#moduleName#')
+  ctx.body.data = data
+}
 
+/**
+ * @api {post} /api/#moduleName#/create 新增
+ * @apiGroup #moduleName#
+ * @apiParam {string} data 参数
+ */
+export async function create (ctx: Context): Promise<void> {
+  // const { data } = ctx.request.body
+  // await tablestore.setItem('v1_#moduleName#', '_key', { data: 'data' })
+  throw Error
+}
+
+/**
+ * @api {post} /api/#moduleName#/update 修改
+ * @apiGroup #moduleName#
+ * @apiParam {string} data 参数
+ */
+export async function update (ctx: Context): Promise<void> {
+  // const { data } = ctx.request.body
+  // const data = await tablestore.getItem('v1_#moduleName#', '_key')
+  // await tablestore.setItem('v1_#moduleName#', '_key', { ...data, data: 'data' })
+  throw Error
+}
+
+/**
+ * @api {post} /api/#moduleName#/del 删除
+ * @apiGroup #moduleName#
+ * @apiParam {string} _key 键值
+ */
+export async function del (ctx: Context): Promise<void> {
+  // const { _key } = ctx.request.body
+  // await tablestore.delItem('v1_#moduleName#', _key)
+  throw Error
 }
